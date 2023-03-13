@@ -7,7 +7,7 @@ const FETCH_OPTIONS = {
     },
 };
 
-export async function getWeatherFrom(query = 'Buenos Aires') {
+export async function getWeatherFrom(query = 'Mexico') {
     const response = await fetch(
         `https://weatherapi-com.p.rapidapi.com/current.json?q=${query}`,
         FETCH_OPTIONS
@@ -25,10 +25,11 @@ export async function getWeatherFrom(query = 'Buenos Aires') {
         wind_kph,
         wind_dir,
     } = current;
-    const { code, text } = condition;
+    const { code, text , icon} = condition;
 
     return {
         conditionCode: code,
+        conditionIcon: icon,
         ConditionText: text,
         locationName: country,
         localTime,

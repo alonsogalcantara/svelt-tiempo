@@ -1,6 +1,7 @@
 <script>
     import { getWeatherFrom } from "../services/servicesWeather.js";
     import WeatherFooter from '../components/weater.footer.svelte'
+    import WeatherIcon from '../components/weather.icon.svelte';
     const weatherPromise = getWeatherFrom();
 </script>
 
@@ -11,6 +12,7 @@
             <h2>{weather.temperature}°</h2>
             <h3>{weather.ConditionText}</h3>
             <h4>{weather.windSpeed} kph</h4>
+            <WeatherIcon icon={weather.conditionIcon}/>
         {/await}
     </section>
     <WeatherFooter />
